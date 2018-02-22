@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0D3048A14E8A40D163678B6D /* Pods_AmazingMazes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */; };
+		B674A321203E49F6006FDD26 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A31E203E49F5006FDD26 /* APIRequestManager.swift */; };
+		B674A322203E49F6006FDD26 /* Maze.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A31F203E49F5006FDD26 /* Maze.swift */; };
+		B674A323203E49F6006FDD26 /* MazesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A320203E49F6006FDD26 /* MazesViewController.swift */; };
 		B6D84136203D00F1002F040F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D84135203D00F1002F040F /* AppDelegate.swift */; };
-		B6D84138203D00F1002F040F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D84137203D00F1002F040F /* ViewController.swift */; };
 		B6D8413B203D00F1002F040F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D84139203D00F1002F040F /* Main.storyboard */; };
 		B6D8413D203D00F1002F040F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D8413C203D00F1002F040F /* Assets.xcassets */; };
 		B6D84140203D00F1002F040F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D8413E203D00F1002F040F /* LaunchScreen.storyboard */; };
@@ -18,9 +20,11 @@
 /* Begin PBXFileReference section */
 		14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingMazes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingMazes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes.debug.xcconfig"; sourceTree = "<group>"; };
+		B674A31E203E49F5006FDD26 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestManager.swift; sourceTree = "<group>"; };
+		B674A31F203E49F5006FDD26 /* Maze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maze.swift; sourceTree = "<group>"; };
+		B674A320203E49F6006FDD26 /* MazesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MazesViewController.swift; sourceTree = "<group>"; };
 		B6D84132203D00F1002F040F /* AmazingMazes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingMazes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D84135203D00F1002F040F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6D84137203D00F1002F040F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6D8413A203D00F1002F040F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6D8413C203D00F1002F040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6D8413F203D00F1002F040F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,8 +82,10 @@
 		B6D84134203D00F1002F040F /* AmazingMazes */ = {
 			isa = PBXGroup;
 			children = (
+				B674A31E203E49F5006FDD26 /* APIRequestManager.swift */,
+				B674A31F203E49F5006FDD26 /* Maze.swift */,
+				B674A320203E49F6006FDD26 /* MazesViewController.swift */,
 				B6D84135203D00F1002F040F /* AppDelegate.swift */,
-				B6D84137203D00F1002F040F /* ViewController.swift */,
 				B6D84139203D00F1002F040F /* Main.storyboard */,
 				B6D8413C203D00F1002F040F /* Assets.xcassets */,
 				B6D8413E203D00F1002F040F /* LaunchScreen.storyboard */,
@@ -211,7 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6D84138203D00F1002F040F /* ViewController.swift in Sources */,
+				B674A323203E49F6006FDD26 /* MazesViewController.swift in Sources */,
+				B674A321203E49F6006FDD26 /* APIRequestManager.swift in Sources */,
+				B674A322203E49F6006FDD26 /* Maze.swift in Sources */,
 				B6D84136203D00F1002F040F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
