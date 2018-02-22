@@ -15,11 +15,16 @@ class MazesViewController: UIViewController {
     
     //mazes to display in table view
     var mazes: [Maze] = []
+    
+    //height value for table view cells
+    var cellHeight: CGFloat!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //don't display empty table cells below data
         mazesTableView.tableFooterView = UIView(frame: CGRect.zero)
+        //calculate and set cellHeight
+        setCellHeight()
         //retrieve maze data from bluebeam server
         loadMazeData()
     }
@@ -27,6 +32,13 @@ class MazesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setCellHeight() {
+        //calculate cell height based on screen width
+        let screenWidth = UIScreen.main.bounds.width
+        //cell is 20% taller than it is wide
+        cellHeight = screenWidth * 1.2
     }
     
     func loadMazeData() {
@@ -57,6 +69,10 @@ class MazesViewController: UIViewController {
 
 extension MazesViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellHeight
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mazes.count
     }
@@ -74,4 +90,7 @@ extension MazesViewController: UITableViewDataSource {
 
 extension MazesViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
