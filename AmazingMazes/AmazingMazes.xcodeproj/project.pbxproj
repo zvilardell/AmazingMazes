@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3048A14E8A40D163678B6D /* Pods_AmazingMazes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */; };
 		B6D84136203D00F1002F040F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D84135203D00F1002F040F /* AppDelegate.swift */; };
 		B6D84138203D00F1002F040F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D84137203D00F1002F040F /* ViewController.swift */; };
 		B6D8413B203D00F1002F040F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D84139203D00F1002F040F /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingMazes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingMazes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes.debug.xcconfig"; sourceTree = "<group>"; };
 		B6D84132203D00F1002F040F /* AmazingMazes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingMazes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D84135203D00F1002F040F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6D84137203D00F1002F040F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		B6D8413C203D00F1002F040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6D8413F203D00F1002F040F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6D84141203D00F1002F040F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingMazes.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3048A14E8A40D163678B6D /* Pods_AmazingMazes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5088B4969A2639F9E4390CFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6DBC3BE83FD91DC645904A09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */,
+				BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B6D84129203D00F0002F040F = {
 			isa = PBXGroup;
 			children = (
 				B6D84134203D00F1002F040F /* AmazingMazes */,
 				B6D84133203D00F1002F040F /* Products */,
+				6DBC3BE83FD91DC645904A09 /* Pods */,
+				5088B4969A2639F9E4390CFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6D84144203D00F1002F040F /* Build configuration list for PBXNativeTarget "AmazingMazes" */;
 			buildPhases = (
+				B8B29BB64EC7D6E8BDB4AA2A /* [CP] Check Pods Manifest.lock */,
 				B6D8412E203D00F1002F040F /* Sources */,
 				B6D8412F203D00F1002F040F /* Frameworks */,
 				B6D84130203D00F1002F040F /* Resources */,
+				F454DCA915C9AADE0AC7FBC0 /* [CP] Embed Pods Frameworks */,
+				ECE2C02BA70490B6EA954B53 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B8B29BB64EC7D6E8BDB4AA2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ECE2C02BA70490B6EA954B53 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F454DCA915C9AADE0AC7FBC0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B6D8412E203D00F1002F040F /* Sources */ = {
@@ -272,6 +347,7 @@
 		};
 		B6D84145203D00F1002F040F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +363,7 @@
 		};
 		B6D84146203D00F1002F040F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
