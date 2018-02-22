@@ -92,5 +92,15 @@ extension MazesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        //present MazeSolutionViewController for the selected maze
+        //(NOTE: I rarely use storyboard segues anymore as I've found them too rigid/cumbersome in larger projects)
+        let selectedMaze = mazes[indexPath.row]
+        if let solutionVC = storyboard?.instantiateViewController(withIdentifier: "MazeSolutionViewController") as? MazeSolutionViewController,
+        let selectedCell = tableView.cellForRow(at: indexPath) as? MazeTableViewCell,
+        let selectedMazeImage = selectedCell.mazeImageView.image {
+            solutionVC.mazeName = selectedMaze.name
+            solutionVC.mazeImage = selectedMazeImage
+            navigationController?.pushViewController(solutionVC, animated: true)
+        }
     }
 }

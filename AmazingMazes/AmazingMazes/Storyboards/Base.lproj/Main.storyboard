@@ -100,7 +100,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="920-UR-mSc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Select to Solve" id="lKt-7u-pos"/>
+                    <navigationItem key="navigationItem" title="Select to Solve" id="lKt-7u-pos">
+                        <barButtonItem key="backBarButtonItem" title=" " id="1pW-W5-CCk"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="Pwx-Zj-sc2" id="vol-wT-XzQ"/>
                         <outlet property="mazesTableView" destination="vIz-ja-6bU" id="SDU-JJ-C6y"/>
@@ -109,6 +111,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBn-qz-fCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="317.60000000000002" y="-48.125937031484263"/>
+        </scene>
+        <!--Maze Solution View Controller-->
+        <scene sceneID="pad-ZE-iXK">
+            <objects>
+                <viewController storyboardIdentifier="MazeSolutionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6MS-O4-ln3" customClass="MazeSolutionViewController" customModule="AmazingMazes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vb1-He-dRH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xY6-lX-P24"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hQ-yi-6jq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1082" y="-48"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Ei-0v-pz8">
