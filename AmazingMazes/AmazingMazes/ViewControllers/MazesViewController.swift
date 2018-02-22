@@ -62,6 +62,10 @@ extension MazesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: MazeTableViewCell.reuseIdentifier, for: indexPath) as? MazeTableViewCell {
+            cell.setup(maze: mazes[indexPath.row])
+            return cell
+        }
         return UITableViewCell()
     }
 }

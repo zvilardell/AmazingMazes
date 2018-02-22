@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,6 +22,53 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vIz-ja-6bU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MazeTableViewCell" rowHeight="375" id="Uzi-H5-JeO" customClass="MazeTableViewCell" customModule="AmazingMazes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="375"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uzi-H5-JeO" id="fzq-6Q-WH7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DoX-u0-m0A">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1II-gU-pdS">
+                                                    <rect key="frame" x="0.0" y="281" width="375" height="93.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyT-c9-urU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qr-uh-Tzl">
+                                                            <rect key="frame" x="0.0" y="47" width="375" height="46.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DoX-u0-m0A" firstAttribute="leading" secondItem="fzq-6Q-WH7" secondAttribute="leading" id="3Ga-qM-NDz"/>
+                                                <constraint firstItem="1II-gU-pdS" firstAttribute="leading" secondItem="fzq-6Q-WH7" secondAttribute="leading" id="4LJ-uk-1so"/>
+                                                <constraint firstAttribute="trailing" secondItem="DoX-u0-m0A" secondAttribute="trailing" id="4ni-xe-Xp2"/>
+                                                <constraint firstAttribute="trailing" secondItem="1II-gU-pdS" secondAttribute="trailing" id="Fg5-5y-he7"/>
+                                                <constraint firstItem="DoX-u0-m0A" firstAttribute="height" secondItem="fzq-6Q-WH7" secondAttribute="height" multiplier="0.75" id="Zaf-r9-QOL"/>
+                                                <constraint firstItem="DoX-u0-m0A" firstAttribute="top" secondItem="fzq-6Q-WH7" secondAttribute="top" id="ZdQ-ab-05n"/>
+                                                <constraint firstAttribute="bottom" secondItem="1II-gU-pdS" secondAttribute="bottom" id="eE6-lE-x6t"/>
+                                                <constraint firstItem="1II-gU-pdS" firstAttribute="top" secondItem="DoX-u0-m0A" secondAttribute="bottom" id="jTq-eO-bzT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mazeDescriptionLabel" destination="2qr-uh-Tzl" id="Lmp-YA-0HE"/>
+                                            <outlet property="mazeImageView" destination="DoX-u0-m0A" id="NKL-tX-3Si"/>
+                                            <outlet property="mazeNameLabel" destination="lyT-c9-urU" id="NOC-VC-c0C"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="A2H-D5-LHU" id="KRa-9d-WLO"/>
                                     <outlet property="delegate" destination="A2H-D5-LHU" id="wLL-Yj-JuO"/>
