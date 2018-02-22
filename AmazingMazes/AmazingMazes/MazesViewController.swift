@@ -18,6 +18,9 @@ class MazesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //don't display empty table cells below data
+        mazesTableView.tableFooterView = UIView(frame: CGRect.zero)
+        //retrieve maze data from bluebeam server
         loadMazeData()
     }
 
@@ -32,8 +35,7 @@ class MazesViewController: UIViewController {
             if success {
                 //reload table view with maze content
                 self?.mazes.append(contentsOf: mazes)
-                print(self?.mazes)
-                //self?.mazesTableView.reloadData()
+                self?.mazesTableView.reloadData()
             } else {
                 //something went wrong, show alert
                 let alert = UIAlertController(title: "Error", message: "Unable to retrieve maze data at this time.", preferredStyle: UIAlertControllerStyle.alert)
