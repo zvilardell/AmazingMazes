@@ -14,10 +14,14 @@
 		B674A329203F6E8C006FDD26 /* MazeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A328203F6E8C006FDD26 /* MazeTableViewCell.swift */; };
 		B674A32C203F8118006FDD26 /* MazeSolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A32B203F8118006FDD26 /* MazeSolutionViewController.swift */; };
 		B674A32E2040DEA2006FDD26 /* MazeSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A32D2040DEA2006FDD26 /* MazeSolver.swift */; };
+		B674A330204136DD006FDD26 /* PixelMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A32F204136DD006FDD26 /* PixelMatrix.swift */; };
+		B674A33220413707006FDD26 /* PixelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A33120413707006FDD26 /* PixelNode.swift */; };
+		B674A33420413B56006FDD26 /* MazeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A33320413B56006FDD26 /* MazeColor.swift */; };
 		B6D84136203D00F1002F040F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D84135203D00F1002F040F /* AppDelegate.swift */; };
 		B6D8413B203D00F1002F040F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D84139203D00F1002F040F /* Main.storyboard */; };
 		B6D8413D203D00F1002F040F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D8413C203D00F1002F040F /* Assets.xcassets */; };
 		B6D84140203D00F1002F040F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D8413E203D00F1002F040F /* LaunchScreen.storyboard */; };
+		B6E871802041729700229352 /* PixelNodeQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8717F2041729700229352 /* PixelNodeQueue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +33,16 @@
 		B674A328203F6E8C006FDD26 /* MazeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeTableViewCell.swift; sourceTree = "<group>"; };
 		B674A32B203F8118006FDD26 /* MazeSolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeSolutionViewController.swift; sourceTree = "<group>"; };
 		B674A32D2040DEA2006FDD26 /* MazeSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeSolver.swift; sourceTree = "<group>"; };
+		B674A32F204136DD006FDD26 /* PixelMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelMatrix.swift; sourceTree = "<group>"; };
+		B674A33120413707006FDD26 /* PixelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelNode.swift; sourceTree = "<group>"; };
+		B674A33320413B56006FDD26 /* MazeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeColor.swift; sourceTree = "<group>"; };
 		B6D84132203D00F1002F040F /* AmazingMazes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingMazes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D84135203D00F1002F040F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6D8413A203D00F1002F040F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6D8413C203D00F1002F040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6D8413F203D00F1002F040F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6D84141203D00F1002F040F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6E8717F2041729700229352 /* PixelNodeQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelNodeQueue.swift; sourceTree = "<group>"; };
 		BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingMazes.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +80,10 @@
 			children = (
 				B674A31E203E49F5006FDD26 /* APIRequestManager.swift */,
 				B674A32D2040DEA2006FDD26 /* MazeSolver.swift */,
+				B674A32F204136DD006FDD26 /* PixelMatrix.swift */,
+				B674A33120413707006FDD26 /* PixelNode.swift */,
+				B674A33320413B56006FDD26 /* MazeColor.swift */,
+				B6E8717F2041729700229352 /* PixelNodeQueue.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -266,12 +278,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B674A330204136DD006FDD26 /* PixelMatrix.swift in Sources */,
 				B674A329203F6E8C006FDD26 /* MazeTableViewCell.swift in Sources */,
 				B674A323203E49F6006FDD26 /* MazesViewController.swift in Sources */,
+				B6E871802041729700229352 /* PixelNodeQueue.swift in Sources */,
 				B674A32C203F8118006FDD26 /* MazeSolutionViewController.swift in Sources */,
 				B674A321203E49F6006FDD26 /* APIRequestManager.swift in Sources */,
+				B674A33420413B56006FDD26 /* MazeColor.swift in Sources */,
 				B674A322203E49F6006FDD26 /* Maze.swift in Sources */,
 				B674A32E2040DEA2006FDD26 /* MazeSolver.swift in Sources */,
+				B674A33220413707006FDD26 /* PixelNode.swift in Sources */,
 				B6D84136203D00F1002F040F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,7 +24,7 @@ class MazeSolutionViewController: UIViewController {
         if let maze = mazeImage {
             MazeSolver.sharedInstance.solveMaze(mazeImage: maze) {success, image in
                 if success, let solvedImage = image {
-                    
+                    print(solvedImage)
                 } else {
                     print("nope")
                 }
