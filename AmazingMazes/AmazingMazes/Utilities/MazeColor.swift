@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  MazeColor.swift
 //  AmazingMazes
 //
 //  Created by Zach Vilardell on 2/24/18.
@@ -8,7 +8,6 @@
 
 import UIKit
 
-//enum MazeColor: UIColor
 struct MazeColor {
     //all maze colors, represented in UIExtendedSRGBColorSpace
     static let red = UIColor.red

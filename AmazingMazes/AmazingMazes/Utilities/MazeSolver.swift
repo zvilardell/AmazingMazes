@@ -40,6 +40,7 @@ class MazeSolver: NSObject {
                 context.addLines(between: pathPoints)
                 context.strokePath()
                 if let solvedMaze: UIImage = UIGraphicsGetImageFromCurrentImageContext() {
+                    cachedSolutions[mazeImage] = solvedMaze
                     completion(true, solvedMaze)
                 } else {
                     completion(false, nil)
