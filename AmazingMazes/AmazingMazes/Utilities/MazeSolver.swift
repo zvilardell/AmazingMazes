@@ -35,7 +35,6 @@ class MazeSolver: NSObject {
             mazeImage.draw(at: CGPoint.zero)
             if let context = UIGraphicsGetCurrentContext() {
                 context.setStrokeColor(UIColor.green.cgColor)
-                context.setLineWidth(2.0)
                 context.move(to: firstPoint)
                 context.addLines(between: pathPoints)
                 context.strokePath()
