@@ -52,6 +52,18 @@ class MazeSolver: NSObject {
             }
             print(colorMatrix.count)
             print(colorMatrix[0].count)
+            let blue = colorMatrix[image.height - 5][5]
+            print(blue)
+            let red = colorMatrix[image.height - 5][(image.width / 2) + 7]
+            print(red)
+            let origin = colorMatrix[0][0] //black
+            print(origin)
+            let one = colorMatrix[1][1] //white
+            print(one)
+            print(blue == UIColor.blue)
+            print(red == UIColor.red)
+            print(origin == UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0))
+            print(one == UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         }
     }
 }
