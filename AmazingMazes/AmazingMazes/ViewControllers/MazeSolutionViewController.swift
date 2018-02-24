@@ -10,6 +10,8 @@ import UIKit
 
 class MazeSolutionViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     //set from MazesViewController on maze selection
     var mazeImage: UIImage!
     var mazeName: String!
@@ -18,6 +20,16 @@ class MazeSolutionViewController: UIViewController {
         super.viewDidLoad()
         //set page title
         navigationItem.title = "\(mazeName ?? "") Solution"
+        //pass maze image to maze solver
+        if let maze = mazeImage {
+            MazeSolver.sharedInstance.solveMaze(mazeImage: maze) {success, image in
+                if success, let solvedImage = image {
+                    
+                } else {
+                    print("nope")
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
