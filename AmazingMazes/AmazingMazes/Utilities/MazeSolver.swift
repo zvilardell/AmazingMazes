@@ -34,25 +34,18 @@ class MazeSolver: NSObject {
             completion(true, solution)
         } else if let cgImage = mazeImage.cgImage {
             //perform image manipulation on background thread
-            imageManipulationQueue.async { [weak self] in
-                if let pixelMatrix = PixelMatrix(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelMatrix), let firstPoint = pathPoints.first {
-                    UIGraphicsBeginImageContext(mazeImage.size)
-                    mazeImage.draw(at: CGPoint.zero)
-                    if let context = UIGraphicsGetCurrentContext() {
-                        context.setStrokeColor(UIColor.green.cgColor)
-                        context.move(to: firstPoint)
-                        context.addLines(between: pathPoints)
-                        context.strokePath()
-                        if let solvedMaze: UIImage = UIGraphicsGetImageFromCurrentImageContext() {
-                            //self?.cachedSolutions[mazeImage] = solvedMaze
-                            completion(true, solvedMaze)
-                        } else {
-                            completion(false, nil)
-                        }
-                    } else {
-                        completion(false, nil)
+            imageManipulationQueue.async { [unowned self] in
+                if let pixelMatrix = PixelMatrix(from: cgImage), let pathPoints = self.shortestPathSolutionPoints(for: pixelMatrix), let firstPoint = pathPoints.first {
+                    let renderer = UIGraphicsImageRenderer(size: mazeImage.size)
+                    let solvedMaze = renderer.image { context in
+                        mazeImage.draw(at: CGPoint.zero)
+                        context.cgContext.setStrokeColor(UIColor.green.cgColor)
+                        context.cgContext.move(to: firstPoint)
+                        context.cgContext.addLines(between: pathPoints)
+                        context.cgContext.strokePath()
                     }
-                    UIGraphicsEndImageContext()
+                    //self?.cachedSolutions[mazeImage] = solvedMaze
+                    completion(true, solvedMaze)
                 }
             }
         } else {
