@@ -34,7 +34,7 @@ class MazeSolver: NSObject {
             completion(true, solution)
         } else if let cgImage = mazeImage.cgImage {
             //perform image manipulation on background thread
-            //imageManipulationQueue.async { [unowned self] in
+            imageManipulationQueue.async { [unowned self] in
                 if let pixelHash = PixelHash(from: cgImage), let pathPoints = self.shortestPathSolutionPoints(for: pixelHash), let firstPoint = pathPoints.first {
                     let renderer = UIGraphicsImageRenderer(size: mazeImage.size)
                     let solvedMaze = renderer.image { context in
@@ -47,7 +47,7 @@ class MazeSolver: NSObject {
                     //self?.cachedSolutions[mazeImage] = solvedMaze
                     completion(true, solvedMaze)
                 }
-            //}
+            }
         } else {
             completion(false, nil)
         }
