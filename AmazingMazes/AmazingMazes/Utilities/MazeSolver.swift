@@ -44,8 +44,10 @@ class MazeSolver: NSObject {
                         context.cgContext.addLines(between: pathPoints)
                         context.cgContext.strokePath()
                     }
-                    //self?.cachedSolutions[mazeImage] = solvedMaze
+                    self.cachedSolutions[mazeImage] = solvedMaze
                     completion(true, solvedMaze)
+                } else {
+                    completion(false, nil)
                 }
             }
         } else {
