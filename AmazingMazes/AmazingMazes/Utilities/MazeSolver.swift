@@ -34,8 +34,8 @@ class MazeSolver: NSObject {
             completion(true, solution)
         } else if let cgImage = mazeImage.cgImage {
             //perform image manipulation on background thread
-            imageManipulationQueue.async { [unowned self] in
-                if let pixelMatrix = PixelMatrix(from: cgImage), let pathPoints = self.shortestPathSolutionPoints(for: pixelMatrix), let firstPoint = pathPoints.first {
+            //imageManipulationQueue.async { [unowned self] in
+                if let pixelHash = PixelHash(from: cgImage), let pathPoints = self.shortestPathSolutionPoints(for: pixelHash), let firstPoint = pathPoints.first {
                     let renderer = UIGraphicsImageRenderer(size: mazeImage.size)
                     let solvedMaze = renderer.image { context in
                         mazeImage.draw(at: CGPoint.zero)
@@ -47,23 +47,25 @@ class MazeSolver: NSObject {
                     //self?.cachedSolutions[mazeImage] = solvedMaze
                     completion(true, solvedMaze)
                 }
-            }
+            //}
         } else {
             completion(false, nil)
         }
     }
     
     //BFS from beginning of maze to find end
-    private func shortestPathSolutionPoints(for mazeMatrix: PixelMatrix) -> [CGPoint]? {
-        let nodeQueue = PixelNodeQueue()
-        nodeQueue.enqueue(mazeMatrix.redPixelNode)
-        while nodeQueue.count > 0 {
-            if let currentNode = nodeQueue.dequeue() {
-                if currentNode.color == MazeColor.blue {
-                	//found end of maze
-                    return getPathPoints(to: currentNode)
+    private func shortestPathSolutionPoints(for pixelHash: PixelHash) -> [CGPoint]? {
+        if let rootPoint = pixelHash.redPixelPoint, let rootNode = pixelHash[rootPoint] {
+            let nodeQueue = PixelNodeQueue()
+            nodeQueue.enqueue(rootNode)
+            while nodeQueue.count > 0 {
+                if let currentNode = nodeQueue.dequeue() {
+                    if currentNode.color == MazeColor.blue {
+                        //found end of maze
+                        return getPathPoints(to: currentNode)
+                    }
+                    nodeQueue.enqueue(currentNode.adjacencies)
                 }
-                nodeQueue.enqueue(currentNode.claimChildren())
             }
         }
         return nil

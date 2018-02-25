@@ -1,5 +1,5 @@
 //
-//  PixelMatrix.swift
+//  PixelHash.swift
 //  AmazingMazes
 //
 //  Created by Zach Vilardell on 2/24/18.
@@ -8,24 +8,19 @@
 
 import UIKit
 
-class PixelMatrix: NSObject {
+class PixelHash: NSObject {
     
-    private var matrix: [[PixelNode]] = []
+    private var pixelHash: [CGPoint:PixelNode] = [:]
     
-    //pixel node reference serves as the starting point of the maze represented by this pixel matrix
-    var redPixelNode: PixelNode!
-    
-    var rows: Int { return self.matrix.count }
-    var columns: Int { return matrix[0].count }
+    //hash key to serve as the starting point of the maze represented by this pixel matrix
+    var redPixelPoint: CGPoint!
     
     init?(from image: CGImage) {
         super.init()
         if let pixelData = image.dataProvider?.data {
             let bytesPerPixel: Int = image.bitsPerPixel / 8
             let pixelBytes: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-            var pixelRow: [PixelNode]
             for y in 0..<image.height {
-                pixelRow = []
                 for x in 0..<image.width {
                     let pixelIndex: Int = ((image.width * y) + x) * bytesPerPixel
                     let r = CGFloat(pixelBytes[pixelIndex]) / 255.0
@@ -35,35 +30,28 @@ class PixelMatrix: NSObject {
                     let color = UIColor(red: r, green: g, blue: b, alpha: a)
                     let point = CGPoint(x: x, y: y)
                     let node = PixelNode(point: point, in: self, withColor: color)
-                    pixelRow.append(node)
-                    if color == MazeColor.red && redPixelNode == nil {
+                    pixelHash[point] = node
+                    if color == MazeColor.red && redPixelPoint == nil {
                         //save this node to serve as the starting point of our maze
-                        redPixelNode = node
+                        redPixelPoint = point
                     }
                 }
-                matrix.append(pixelRow)
             }
         } else {
         	return nil
         }
     }
     
-    func indexIsValid(row: Int, column: Int) -> Bool {
-        return row >= 0 && row < rows && column >= 0 && column < columns
-    }
-    
-    subscript(row: Int, column: Int) -> PixelNode {
+    subscript(key: CGPoint) -> PixelNode? {
         get {
-            assert(indexIsValid(row: row, column: column), "Index out of range.")
-            return matrix[row][column]
-        }
-    }
-    
-    subscript(point: CGPoint) -> PixelNode? {
-        get {
-            let row = Int(point.y)
-            let column = Int(point.x)
-            return indexIsValid(row: row, column: column) ? matrix[row][column] : nil
+            return pixelHash[key]
         }
     }
 }
+
+extension CGPoint: Hashable {
+    public var hashValue: Int {
+        return x.hashValue ^ y.hashValue &* 16777619
+    }
+}
+
