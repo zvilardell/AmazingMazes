@@ -51,6 +51,7 @@ class PixelHash: NSObject {
 
 extension CGPoint: Hashable {
     public var hashValue: Int {
+        //simple hash function from apple docs
         return x.hashValue ^ y.hashValue &* 16777619
     }
 }
