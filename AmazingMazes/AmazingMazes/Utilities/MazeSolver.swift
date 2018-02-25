@@ -45,9 +45,13 @@ class MazeSolver: NSObject {
                         context.cgContext.strokePath()
                     }
                     self.cachedSolutions[mazeImage] = solvedMaze
-                    completion(true, solvedMaze)
+                    DispatchQueue.main.async {
+                    	completion(true, solvedMaze)
+                    }
                 } else {
-                    completion(false, nil)
+                    DispatchQueue.main.async {
+                    	completion(false, nil)
+                    }
                 }
             }
         } else {

@@ -23,13 +23,11 @@ class MazeSolutionViewController: UIViewController {
         //pass maze image to maze solver
         if let maze = mazeImage {
             MazeSolver.sharedInstance.solveMaze(mazeImage: maze) {success, image in
-                DispatchQueue.main.async {
-                    if success, let solvedImage = image {
-                        print(solvedImage)
-                        let _ = 0
-                    } else {
-                        print("nope")
-                    }
+                if success, let solvedImage = image {
+                    print(solvedImage)
+                    let _ = 0
+                } else {
+                    print("nope")
                 }
             }
         }
