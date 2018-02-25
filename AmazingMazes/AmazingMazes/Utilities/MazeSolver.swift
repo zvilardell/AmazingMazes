@@ -17,6 +17,8 @@ class MazeSolver: NSObject {
     
     typealias SolveMazeCompletion = (Bool, UIImage?)->()
     
+    let imageManipulationQueue = DispatchQueue(label: "imageManipulation", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent)
+    
     //---------------------------------------------------------------------------------------------------------------------------
     //singleton setup
     
@@ -27,43 +29,49 @@ class MazeSolver: NSObject {
     
     //---------------------------------------------------------------------------------------------------------------------------
     
-    func solveMaze(mazeImage: UIImage, completion: SolveMazeCompletion) {
+    func solveMaze(mazeImage: UIImage, completion: @escaping SolveMazeCompletion) {
         if let solution = cachedSolutions[mazeImage] {
             completion(true, solution)
-        } else if let cgImage = mazeImage.cgImage, let pixelMatrix = PixelMatrix(from: cgImage), let pathPoints = shortestSolutionPathPoints(for: pixelMatrix), let firstPoint = pathPoints.first {
-        	UIGraphicsBeginImageContext(mazeImage.size)
-            mazeImage.draw(at: CGPoint.zero)
-            if let context = UIGraphicsGetCurrentContext() {
-                context.setStrokeColor(UIColor.green.cgColor)
-                context.move(to: firstPoint)
-                context.addLines(between: pathPoints)
-                context.strokePath()
-                if let solvedMaze: UIImage = UIGraphicsGetImageFromCurrentImageContext() {
-                    cachedSolutions[mazeImage] = solvedMaze
-                    completion(true, solvedMaze)
+        } else if let cgImage = mazeImage.cgImage {
+            //perform image manipulation on background thread
+            imageManipulationQueue.async { [weak self] in
+                if let pixelHash = PixelHash(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelHash), let firstPoint = pathPoints.first {
+                    let renderer = UIGraphicsImageRenderer(size: mazeImage.size)
+                    let solvedMaze = renderer.image { context in
+                        mazeImage.draw(at: CGPoint.zero)
+                        context.cgContext.setStrokeColor(UIColor.green.cgColor)
+                        context.cgContext.move(to: firstPoint)
+                        context.cgContext.addLines(between: pathPoints)
+                        context.cgContext.strokePath()
+                    }
+                    self?.cachedSolutions[mazeImage] = solvedMaze
+                    DispatchQueue.main.async {
+                    	completion(true, solvedMaze)
+                    }
                 } else {
-                    completion(false, nil)
+                    DispatchQueue.main.async {
+                    	completion(false, nil)
+                    }
                 }
-            } else {
-                completion(false, nil)
             }
-            UIGraphicsEndImageContext()
         } else {
             completion(false, nil)
         }
     }
     
     //BFS from beginning of maze to find end
-    private func shortestSolutionPathPoints(for mazeMatrix: PixelMatrix) -> [CGPoint]? {
-        let nodeQueue = PixelNodeQueue()
-        nodeQueue.enqueue(mazeMatrix.redPixelNode)
-        while nodeQueue.count > 0 {
-            if let currentNode = nodeQueue.dequeue() {
-                if currentNode.color == MazeColor.blue {
-                	//found end of maze
-                    return getPathPoints(to: currentNode)
+    private func shortestPathSolutionPoints(for pixelHash: PixelHash) -> [CGPoint]? {
+        if let rootPoint = pixelHash.redPixelPoint, let rootNode = pixelHash[rootPoint] {
+            let nodeQueue = PixelNodeQueue()
+            nodeQueue.enqueue(rootNode)
+            while nodeQueue.count > 0 {
+                if let currentNode = nodeQueue.dequeue() {
+                    if currentNode.color == MazeColor.blue {
+                        //found end of maze
+                        return getPathPoints(to: currentNode)
+                    }
+                    nodeQueue.enqueue(currentNode.adjacencies)
                 }
-                nodeQueue.enqueue(currentNode.claimChildren())
             }
         }
         return nil
