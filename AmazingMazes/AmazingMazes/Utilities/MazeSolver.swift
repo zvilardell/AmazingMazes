@@ -18,6 +18,7 @@ class MazeSolver: NSObject {
     typealias SolveMazeCompletion = (Bool, UIImage?)->()
     
     private let imageManipulationQueue = DispatchQueue(label: "imageManipulation", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
+    private let pathfindingQueue = DispatchQueue(label: "pathfinding", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     
     //---------------------------------------------------------------------------------------------------------------------------
     //singleton setup

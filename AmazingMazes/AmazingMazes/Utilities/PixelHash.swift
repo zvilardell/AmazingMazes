@@ -11,7 +11,7 @@ import UIKit
 class PixelHash: NSObject {
     
     private let imageScanningQueue = DispatchQueue(label: "imageScanning", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
-    private let hashWritingQueue = DispatchQueue(label: "imageScanning", qos: DispatchQoS.userInitiated)
+    private let hashWritingQueue = DispatchQueue(label: "hashWriting", qos: DispatchQoS.userInitiated)
     
     private var pixelHash: [CGPoint:PixelNode] = [:]
     
