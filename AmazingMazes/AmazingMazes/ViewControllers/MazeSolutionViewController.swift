@@ -40,6 +40,7 @@ class MazeSolutionViewController: UIViewController {
                 self?.activityIndicator.stopAnimating()
                 if success, let solvedImage = image {
                     print(solvedImage)
+                    let _ = 0
                 } else {
                     //something went wrong, show alert
                     let alert = UIAlertController(title: "Error", message: "Unable to solve maze.", preferredStyle: UIAlertControllerStyle.alert)

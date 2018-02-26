@@ -10,6 +10,9 @@ import UIKit
 
 class PixelHash: NSObject {
     
+    private let imageScanningQueue = DispatchQueue(label: "imageScanning", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
+    private let hashWritingQueue = DispatchQueue(label: "imageScanning", qos: DispatchQoS.userInitiated)
+    
     private var pixelHash: [CGPoint:PixelNode] = [:]
     
     //hash key to serve as the starting point of the maze represented by this pixel matrix
@@ -20,23 +23,31 @@ class PixelHash: NSObject {
         if let pixelData = image.dataProvider?.data {
             let bytesPerPixel: Int = image.bitsPerPixel / 8
             let pixelBytes: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+            let imageScanGroup = DispatchGroup()
             for y in 0..<image.height {
-                for x in 0..<image.width {
-                    let pixelIndex: Int = ((image.width * y) + x) * bytesPerPixel
-                    let r = CGFloat(pixelBytes[pixelIndex]) / 255.0
-                    let g = CGFloat(pixelBytes[pixelIndex + 1]) / 255.0
-                    let b = CGFloat(pixelBytes[pixelIndex + 2]) / 255.0
-                    let a = CGFloat(pixelBytes[pixelIndex + 3]) / 255.0
-                    let color = UIColor(red: r, green: g, blue: b, alpha: a)
-                    let point = CGPoint(x: x, y: y)
-                    let node = PixelNode(point: point, in: self, withColor: color)
-                    pixelHash[point] = node
-                    if color == MazeColor.red && redPixelPoint == nil {
-                        //save this node to serve as the starting point of our maze
-                        redPixelPoint = point
+                imageScanGroup.enter()
+                imageScanningQueue.async {[unowned self] in
+                    for x in 0..<image.width {
+                        let pixelIndex: Int = ((image.width * y) + x) * bytesPerPixel
+                        let r = CGFloat(pixelBytes[pixelIndex]) / 255.0
+                        let g = CGFloat(pixelBytes[pixelIndex + 1]) / 255.0
+                        let b = CGFloat(pixelBytes[pixelIndex + 2]) / 255.0
+                        let a = CGFloat(pixelBytes[pixelIndex + 3]) / 255.0
+                        let color = UIColor(red: r, green: g, blue: b, alpha: a)
+                        let point = CGPoint(x: x, y: y)
+                        let node = PixelNode(point: point, in: self, withColor: color)
+                        self.hashWritingQueue.sync {
+                            self.pixelHash[point] = node
+                        }
+                        if color == MazeColor.red && self.redPixelPoint == nil {
+                            //save this node to serve as the starting point of our maze
+                            self.redPixelPoint = point
+                        }
                     }
+                    imageScanGroup.leave()
                 }
             }
+            imageScanGroup.wait()
         } else {
         	return nil
         }
