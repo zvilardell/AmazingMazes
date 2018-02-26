@@ -25,6 +25,7 @@ class PixelHash: NSObject {
             let pixelBytes: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
             let imageScanGroup = DispatchGroup()
             for y in 0..<image.height {
+                //start new asyncronous task to scan pixel row
                 imageScanGroup.enter()
                 imageScanningQueue.async {[unowned self] in
                     for x in 0..<image.width {
@@ -44,9 +45,11 @@ class PixelHash: NSObject {
                             self.redPixelPoint = point
                         }
                     }
+                    //pixel row scanned, leave dispatch group
                     imageScanGroup.leave()
                 }
             }
+            //wait for all pixel rows to be scanned
             imageScanGroup.wait()
         } else {
         	return nil
