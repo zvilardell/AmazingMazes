@@ -15,10 +15,10 @@ class MazeSolver: NSObject {
     //value: solved maze image, from previous solution attempt
     private var cachedSolutions: [UIImage:UIImage] = [:]
     
-    typealias SolveMazeCompletion = (Bool, UIImage?)->()
-    
     private let imageManipulationQueue = DispatchQueue(label: "imageManipulation", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     private let pathfindingQueue = DispatchQueue(label: "pathfinding", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
+    
+    typealias SolveMazeCompletion = (Bool, UIImage?)->()
     
     //---------------------------------------------------------------------------------------------------------------------------
     //singleton setup
@@ -101,6 +101,7 @@ class MazeSolver: NSObject {
         return nil
     }
     
+    //collect CGPoints representing the maze solution path
     private func getPathPoints(to endNode: PixelNode) -> [CGPoint] {
         var pathPoints: [CGPoint] = []
         var node: PixelNode? = endNode
