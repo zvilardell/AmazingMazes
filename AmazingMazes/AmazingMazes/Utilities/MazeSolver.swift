@@ -36,13 +36,12 @@ class MazeSolver: NSObject {
         } else if let cgImage = formattedCGImage(for: mazeImage) {
 			//perform image manipulation on background thread
             imageManipulationQueue.async { [weak self] in
-                if let pixelHash = PixelHash(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelHash), let firstPoint = pathPoints.first {
+                if let pixelHash = PixelHash(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelHash) {
                     let format = UIGraphicsImageRendererFormat(for: UITraitCollection(displayScale: 1.0))
                     let renderer = UIGraphicsImageRenderer(size: CGSize(width: cgImage.width, height: cgImage.height), format: format)
                     let solvedMaze = renderer.image { context in
                         mazeImage.draw(at: CGPoint.zero)
                         context.cgContext.setStrokeColor(UIColor.green.cgColor)
-                        context.cgContext.move(to: firstPoint)
                         context.cgContext.addLines(between: pathPoints)
                         context.cgContext.strokePath()
                     }
@@ -107,7 +106,7 @@ class MazeSolver: NSObject {
         var node: PixelNode? = endNode
         while node != nil {
             if let currentNode = node {
-                pathPoints.insert(currentNode.point, at: 0)
+                pathPoints.append(currentNode.point)
             }
             node = node?.parent
         }
