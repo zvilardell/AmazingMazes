@@ -34,6 +34,10 @@ class PixelHash: NSObject {
                         let g = CGFloat(pixelBytes[pixelIndex + 1]) / 255.0
                         let b = CGFloat(pixelBytes[pixelIndex + 2]) / 255.0
                         let color = UIColor(red: r, green: g, blue: b, alpha: 1.0)
+                        if color == MazeColor.black {
+                            //don't hash black pixels (maze walls), only hash pixels representing the maze path
+                            continue
+                        }
                         let point = CGPoint(x: x, y: y)
                         let node = PixelNode(point: point, in: self, withColor: color)
                         self.hashWritingQueue.sync {
