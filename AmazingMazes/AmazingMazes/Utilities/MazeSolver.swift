@@ -37,7 +37,8 @@ class MazeSolver: NSObject {
             //perform image manipulation on background thread
             imageManipulationQueue.async { [weak self] in
                 if let pixelHash = PixelHash(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelHash), let firstPoint = pathPoints.first {
-                    let renderer = UIGraphicsImageRenderer(size: mazeImage.size)
+                    let format = UIGraphicsImageRendererFormat(for: UITraitCollection(displayScale: mazeImage.scale))
+                    let renderer = UIGraphicsImageRenderer(size: mazeImage.size, format: format)
                     let solvedMaze = renderer.image { context in
                         mazeImage.draw(at: CGPoint.zero)
                         context.cgContext.setStrokeColor(UIColor.green.cgColor)
