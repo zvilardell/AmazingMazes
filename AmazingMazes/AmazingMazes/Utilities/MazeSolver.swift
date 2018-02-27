@@ -61,8 +61,9 @@ class MazeSolver: NSObject {
         }
     }
     
+    //Create a formatted CGImage representation of the maze image for a specific CGContext
+    //(ensures that any maze image can be processed correctly when finding solution)
     func formattedCGImage(for image: UIImage) -> CGImage? {
-        //ensure that any maze image can be processed correctly by creating a formatted CGImage representation for a specific CGContext
         if let cgImage = image.cgImage {
             let bytesPerRow = cgImage.width * 4
             let colorSpace = CGColorSpaceCreateDeviceRGB()
