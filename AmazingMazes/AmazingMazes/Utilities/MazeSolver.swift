@@ -33,12 +33,12 @@ class MazeSolver: NSObject {
     func solveMaze(mazeImage: UIImage, completion: @escaping SolveMazeCompletion) {
         if let solution = cachedSolutions[mazeImage] {
             completion(true, solution)
-        } else if let cgImage = mazeImage.cgImage {
-            //perform image manipulation on background thread
+        } else if let cgImage = formattedCGImage(for: mazeImage) {
+			//perform image manipulation on background thread
             imageManipulationQueue.async { [weak self] in
                 if let pixelHash = PixelHash(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelHash), let firstPoint = pathPoints.first {
-                    let format = UIGraphicsImageRendererFormat(for: UITraitCollection(displayScale: mazeImage.scale))
-                    let renderer = UIGraphicsImageRenderer(size: mazeImage.size, format: format)
+                    let format = UIGraphicsImageRendererFormat(for: UITraitCollection(displayScale: 1.0))
+                    let renderer = UIGraphicsImageRenderer(size: CGSize(width: cgImage.width, height: cgImage.height), format: format)
                     let solvedMaze = renderer.image { context in
                         mazeImage.draw(at: CGPoint.zero)
                         context.cgContext.setStrokeColor(UIColor.green.cgColor)
@@ -59,6 +59,27 @@ class MazeSolver: NSObject {
         } else {
             completion(false, nil)
         }
+    }
+    
+    func formattedCGImage(for image: UIImage) -> CGImage? {
+        //ensure that any maze image can be processed correctly by creating a formatted CGImage representation for a specific CGContext
+        if let cgImage = image.cgImage {
+            let bytesPerRow = cgImage.width * 4
+            let colorSpace = CGColorSpaceCreateDeviceRGB()
+            let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)
+            let context = CGContext(data: nil,
+                                	width: cgImage.width,
+                                    height: cgImage.height,
+                                    bitsPerComponent: 8,
+                                    bytesPerRow: bytesPerRow,
+                                    space: colorSpace,
+                                    bitmapInfo: bitmapInfo.rawValue)
+            let rect = CGRect(x: 0, y: 0, width: cgImage.width, height: cgImage.height)
+            context?.draw(cgImage, in: rect)
+            let formattedImage = context?.makeImage()
+            return formattedImage
+        }
+        return nil
     }
     
     //BFS from beginning of maze to find end

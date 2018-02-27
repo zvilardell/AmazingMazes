@@ -33,8 +33,7 @@ class PixelHash: NSObject {
                         let r = CGFloat(pixelBytes[pixelIndex]) / 255.0
                         let g = CGFloat(pixelBytes[pixelIndex + 1]) / 255.0
                         let b = CGFloat(pixelBytes[pixelIndex + 2]) / 255.0
-                        let a = CGFloat(pixelBytes[pixelIndex + 3]) / 255.0
-                        let color = UIColor(red: r, green: g, blue: b, alpha: a)
+                        let color = UIColor(red: r, green: g, blue: b, alpha: 1.0)
                         let point = CGPoint(x: x, y: y)
                         let node = PixelNode(point: point, in: self, withColor: color)
                         self.hashWritingQueue.sync {
