@@ -67,7 +67,7 @@ class MazeSolver: NSObject {
             let bytesPerRow = cgImage.width * 4
             let colorSpace = CGColorSpaceCreateDeviceRGB()
             let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)
-            let context = CGContext(data: nil,
+            let context = CGContext(data: nil, //allowing function to automatically allocate memory
                                 	width: cgImage.width,
                                     height: cgImage.height,
                                     bitsPerComponent: 8,
