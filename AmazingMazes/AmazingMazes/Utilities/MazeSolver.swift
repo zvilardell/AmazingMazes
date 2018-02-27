@@ -38,16 +38,16 @@ class MazeSolver: NSObject {
             imageManipulationQueue.async { [weak self] in
                 if let pixelHash = PixelHash(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelHash) {
                     let format = UIGraphicsImageRendererFormat(for: UITraitCollection(displayScale: 1.0))
-                    let renderer = UIGraphicsImageRenderer(size: CGSize(width: cgImage.width, height: cgImage.height), format: format)
-                    let solvedMaze = renderer.image { context in
+                    let renderer = UIGraphicsImageRenderer(size: mazeImage.size, format: format)
+                    let solvedMazeImage: UIImage = renderer.image { context in
                         mazeImage.draw(at: CGPoint.zero)
                         context.cgContext.setStrokeColor(UIColor.green.cgColor)
                         context.cgContext.addLines(between: pathPoints)
                         context.cgContext.strokePath()
                     }
-                    self?.cachedSolutions[mazeImage] = solvedMaze
+                    self?.cachedSolutions[mazeImage] = solvedMazeImage
                     DispatchQueue.main.async {
-                    	completion(true, solvedMaze)
+                    	completion(true, solvedMazeImage)
                     }
                 } else {
                     DispatchQueue.main.async {
@@ -64,13 +64,15 @@ class MazeSolver: NSObject {
     //(ensures that any maze image can be processed correctly when finding solution)
     func formattedCGImage(for image: UIImage) -> CGImage? {
         if let cgImage = image.cgImage {
-            let bytesPerRow = cgImage.width * 4
+            let bitsPerComponent = 8
+            let bytesPerPixel = 4
+            let bytesPerRow = cgImage.width * bytesPerPixel
             let colorSpace = CGColorSpaceCreateDeviceRGB()
             let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)
             let context = CGContext(data: nil, //allow function to automatically allocate memory for context
                                 	width: cgImage.width,
                                     height: cgImage.height,
-                                    bitsPerComponent: 8,
+                                    bitsPerComponent: bitsPerComponent,
                                     bytesPerRow: bytesPerRow,
                                     space: colorSpace,
                                     bitmapInfo: bitmapInfo.rawValue)
