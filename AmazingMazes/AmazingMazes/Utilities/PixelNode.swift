@@ -28,7 +28,7 @@ class PixelNode: NSObject {
             CGPoint(x: point.x - 1, y: point.y)   //left
         ]
         for pointIndex in adjacentIndices {
-            if let node = pixelHash?[pointIndex], (node.parent == nil && node != parent), node.color != MazeColor.black {
+            if let node = pixelHash?[pointIndex], node.parent == nil && node != parent {
                 adjacencies.append(node)
                 node.parent = self
             }

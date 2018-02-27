@@ -15,9 +15,10 @@ class MazeSolver: NSObject {
     //value: solved maze image, from previous solution attempt
     private var cachedSolutions: [UIImage:UIImage] = [:]
     
-    typealias SolveMazeCompletion = (Bool, UIImage?)->()
+    private let imageManipulationQueue = DispatchQueue(label: "imageManipulation", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
+    private let pathfindingQueue = DispatchQueue(label: "pathfinding", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     
-    let imageManipulationQueue = DispatchQueue(label: "imageManipulation", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent)
+    typealias SolveMazeCompletion = (Bool, UIImage?)->()
     
     //---------------------------------------------------------------------------------------------------------------------------
     //singleton setup
@@ -32,15 +33,15 @@ class MazeSolver: NSObject {
     func solveMaze(mazeImage: UIImage, completion: @escaping SolveMazeCompletion) {
         if let solution = cachedSolutions[mazeImage] {
             completion(true, solution)
-        } else if let cgImage = mazeImage.cgImage {
-            //perform image manipulation on background thread
+        } else if let cgImage = formattedCGImage(for: mazeImage) {
+			//perform image manipulation on background thread
             imageManipulationQueue.async { [weak self] in
-                if let pixelHash = PixelHash(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelHash), let firstPoint = pathPoints.first {
-                    let renderer = UIGraphicsImageRenderer(size: mazeImage.size)
+                if let pixelHash = PixelHash(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelHash) {
+                    let format = UIGraphicsImageRendererFormat(for: UITraitCollection(displayScale: 1.0))
+                    let renderer = UIGraphicsImageRenderer(size: CGSize(width: cgImage.width, height: cgImage.height), format: format)
                     let solvedMaze = renderer.image { context in
                         mazeImage.draw(at: CGPoint.zero)
                         context.cgContext.setStrokeColor(UIColor.green.cgColor)
-                        context.cgContext.move(to: firstPoint)
                         context.cgContext.addLines(between: pathPoints)
                         context.cgContext.strokePath()
                     }
@@ -57,6 +58,28 @@ class MazeSolver: NSObject {
         } else {
             completion(false, nil)
         }
+    }
+    
+    //Create a formatted CGImage representation of the maze image for a specific CGContext
+    //(ensures that any maze image can be processed correctly when finding solution)
+    func formattedCGImage(for image: UIImage) -> CGImage? {
+        if let cgImage = image.cgImage {
+            let bytesPerRow = cgImage.width * 4
+            let colorSpace = CGColorSpaceCreateDeviceRGB()
+            let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)
+            let context = CGContext(data: nil, //allow function to automatically allocate memory for context
+                                	width: cgImage.width,
+                                    height: cgImage.height,
+                                    bitsPerComponent: 8,
+                                    bytesPerRow: bytesPerRow,
+                                    space: colorSpace,
+                                    bitmapInfo: bitmapInfo.rawValue)
+            let rect = CGRect(x: 0, y: 0, width: cgImage.width, height: cgImage.height)
+            context?.draw(cgImage, in: rect)
+            let formattedImage = context?.makeImage()
+            return formattedImage
+        }
+        return nil
     }
     
     //BFS from beginning of maze to find end
@@ -77,12 +100,13 @@ class MazeSolver: NSObject {
         return nil
     }
     
+    //collect CGPoints representing the maze solution path
     private func getPathPoints(to endNode: PixelNode) -> [CGPoint] {
         var pathPoints: [CGPoint] = []
         var node: PixelNode? = endNode
         while node != nil {
             if let currentNode = node {
-                pathPoints.insert(currentNode.point, at: 0)
+                pathPoints.append(currentNode.point)
             }
             node = node?.parent
         }
