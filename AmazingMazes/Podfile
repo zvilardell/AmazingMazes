@@ -8,5 +8,6 @@ target 'AmazingMazes' do
   # Pods for AmazingMazes
   pod 'Alamofire', '~> 4.6'
   pod 'SDWebImage', '~> 4.0'
+  pod 'ImageScrollView'
 
 end
