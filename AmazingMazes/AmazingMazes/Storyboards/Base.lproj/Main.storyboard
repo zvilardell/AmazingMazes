@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -121,30 +120,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYd-4g-FPF" customClass="ImageScrollView" customModule="ImageScrollView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4Aq-JW-S43">
                                 <rect key="frame" x="169" y="325" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CEO-a0-Bc7">
-                                <rect key="frame" x="10" y="30" width="355" height="355"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="CEO-a0-Bc7" secondAttribute="height" multiplier="1:1" id="Pah-Y0-kfY"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4Aq-JW-S43" firstAttribute="centerY" secondItem="xY6-lX-P24" secondAttribute="centerY" id="1q8-Lr-ak3"/>
-                            <constraint firstItem="xY6-lX-P24" firstAttribute="trailing" secondItem="CEO-a0-Bc7" secondAttribute="trailing" constant="10" id="XBG-N4-ohz"/>
-                            <constraint firstItem="CEO-a0-Bc7" firstAttribute="top" secondItem="xY6-lX-P24" secondAttribute="top" constant="10" id="are-qa-61x"/>
+                            <constraint firstItem="YYd-4g-FPF" firstAttribute="top" secondItem="xY6-lX-P24" secondAttribute="top" id="5OG-J3-sYN"/>
+                            <constraint firstItem="xY6-lX-P24" firstAttribute="trailing" secondItem="YYd-4g-FPF" secondAttribute="trailing" id="5oN-js-lfD"/>
+                            <constraint firstItem="xY6-lX-P24" firstAttribute="bottom" secondItem="YYd-4g-FPF" secondAttribute="bottom" id="YSX-eB-KuG"/>
                             <constraint firstItem="4Aq-JW-S43" firstAttribute="centerX" secondItem="xY6-lX-P24" secondAttribute="centerX" id="g01-hI-61s"/>
-                            <constraint firstItem="CEO-a0-Bc7" firstAttribute="leading" secondItem="xY6-lX-P24" secondAttribute="leading" constant="10" id="ql5-pR-B7h"/>
+                            <constraint firstItem="YYd-4g-FPF" firstAttribute="leading" secondItem="xY6-lX-P24" secondAttribute="leading" id="y8v-wt-j2P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xY6-lX-P24"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="4Aq-JW-S43" id="Dlt-Ww-A5D"/>
-                        <outlet property="solvedMazeImageView" destination="CEO-a0-Bc7" id="jQN-pZ-0BW"/>
+                        <outlet property="solvedMazeImageScrollView" destination="YYd-4g-FPF" id="g4s-4o-w7m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hQ-yi-6jq" userLabel="First Responder" sceneMemberID="firstResponder"/>

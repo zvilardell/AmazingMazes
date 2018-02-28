@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import ImageScrollView
 
 class MazeSolutionViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var solvedMazeImageView: UIImageView!
+    @IBOutlet weak var solvedMazeImageScrollView: ImageScrollView!
     
     //set from MazesViewController on maze selection
     var mazeImage: UIImage!
@@ -40,7 +41,7 @@ class MazeSolutionViewController: UIViewController {
             MazeSolver.sharedInstance.solveMaze(mazeImage: maze) {[weak self] success, image in
                 self?.activityIndicator.stopAnimating()
                 if success, let solvedImage = image {
-                    self?.solvedMazeImageView.image = solvedImage
+                    self?.solvedMazeImageScrollView.display(image: solvedImage)
                 } else {
                     //something went wrong, show alert
                     let alert = UIAlertController(title: "Error", message: "Unable to solve maze.", preferredStyle: UIAlertControllerStyle.alert)
