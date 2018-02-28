@@ -121,9 +121,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4Aq-JW-S43">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4Aq-JW-S43">
                                 <rect key="frame" x="169" y="325" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CEO-a0-Bc7">
@@ -135,8 +134,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="4Aq-JW-S43" firstAttribute="centerY" secondItem="xY6-lX-P24" secondAttribute="centerY" id="1q8-Lr-ak3"/>
                             <constraint firstItem="xY6-lX-P24" firstAttribute="trailing" secondItem="CEO-a0-Bc7" secondAttribute="trailing" constant="10" id="XBG-N4-ohz"/>
                             <constraint firstItem="CEO-a0-Bc7" firstAttribute="top" secondItem="xY6-lX-P24" secondAttribute="top" constant="10" id="are-qa-61x"/>
+                            <constraint firstItem="4Aq-JW-S43" firstAttribute="centerX" secondItem="xY6-lX-P24" secondAttribute="centerX" id="g01-hI-61s"/>
                             <constraint firstItem="CEO-a0-Bc7" firstAttribute="leading" secondItem="xY6-lX-P24" secondAttribute="leading" constant="10" id="ql5-pR-B7h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xY6-lX-P24"/>
