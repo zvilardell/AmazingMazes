@@ -17,10 +17,6 @@ class MazeSolutionViewController: UIViewController {
     //set from MazesViewController on maze selection
     var mazeImage: UIImage!
     var mazeName: String!
-    
-    deinit {
-        print("deinit")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

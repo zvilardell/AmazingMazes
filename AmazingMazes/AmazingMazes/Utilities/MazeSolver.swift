@@ -16,7 +16,6 @@ class MazeSolver: NSObject {
     private var cachedSolutions: [UIImage:UIImage] = [:]
     
     private let imageManipulationQueue = DispatchQueue(label: "imageManipulation", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
-    private let pathfindingQueue = DispatchQueue(label: "pathfinding", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     
     typealias SolveMazeCompletion = (Bool, UIImage?)->()
     
