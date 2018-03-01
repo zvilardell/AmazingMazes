@@ -7,21 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3048A14E8A40D163678B6D /* Pods_AmazingMazes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */; };
+		B674A321203E49F6006FDD26 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A31E203E49F5006FDD26 /* APIRequestManager.swift */; };
+		B674A322203E49F6006FDD26 /* Maze.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A31F203E49F5006FDD26 /* Maze.swift */; };
+		B674A323203E49F6006FDD26 /* MazesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A320203E49F6006FDD26 /* MazesViewController.swift */; };
+		B674A329203F6E8C006FDD26 /* MazeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A328203F6E8C006FDD26 /* MazeTableViewCell.swift */; };
+		B674A32C203F8118006FDD26 /* MazeSolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A32B203F8118006FDD26 /* MazeSolutionViewController.swift */; };
+		B674A32E2040DEA2006FDD26 /* MazeSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A32D2040DEA2006FDD26 /* MazeSolver.swift */; };
+		B674A33220413707006FDD26 /* PixelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A33120413707006FDD26 /* PixelNode.swift */; };
+		B674A33420413B56006FDD26 /* MazeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A33320413B56006FDD26 /* MazeColor.swift */; };
 		B6D84136203D00F1002F040F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D84135203D00F1002F040F /* AppDelegate.swift */; };
-		B6D84138203D00F1002F040F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D84137203D00F1002F040F /* ViewController.swift */; };
 		B6D8413B203D00F1002F040F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D84139203D00F1002F040F /* Main.storyboard */; };
 		B6D8413D203D00F1002F040F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D8413C203D00F1002F040F /* Assets.xcassets */; };
 		B6D84140203D00F1002F040F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D8413E203D00F1002F040F /* LaunchScreen.storyboard */; };
+		B6E871802041729700229352 /* PixelNodeQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8717F2041729700229352 /* PixelNodeQueue.swift */; };
+		B6E87182204352E800229352 /* PixelHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E87181204352E800229352 /* PixelHash.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingMazes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingMazes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes.debug.xcconfig"; sourceTree = "<group>"; };
+		B674A31E203E49F5006FDD26 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestManager.swift; sourceTree = "<group>"; };
+		B674A31F203E49F5006FDD26 /* Maze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maze.swift; sourceTree = "<group>"; };
+		B674A320203E49F6006FDD26 /* MazesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MazesViewController.swift; sourceTree = "<group>"; };
+		B674A328203F6E8C006FDD26 /* MazeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeTableViewCell.swift; sourceTree = "<group>"; };
+		B674A32B203F8118006FDD26 /* MazeSolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeSolutionViewController.swift; sourceTree = "<group>"; };
+		B674A32D2040DEA2006FDD26 /* MazeSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeSolver.swift; sourceTree = "<group>"; };
+		B674A33120413707006FDD26 /* PixelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelNode.swift; sourceTree = "<group>"; };
+		B674A33320413B56006FDD26 /* MazeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeColor.swift; sourceTree = "<group>"; };
 		B6D84132203D00F1002F040F /* AmazingMazes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazingMazes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D84135203D00F1002F040F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6D84137203D00F1002F040F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6D8413A203D00F1002F040F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6D8413C203D00F1002F040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6D8413F203D00F1002F040F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6D84141203D00F1002F040F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6E8717F2041729700229352 /* PixelNodeQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelNodeQueue.swift; sourceTree = "<group>"; };
+		B6E87181204352E800229352 /* PixelHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelHash.swift; sourceTree = "<group>"; };
+		BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingMazes.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +51,92 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3048A14E8A40D163678B6D /* Pods_AmazingMazes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5088B4969A2639F9E4390CFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6DBC3BE83FD91DC645904A09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */,
+				BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B674A324203E4DF9006FDD26 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B674A31E203E49F5006FDD26 /* APIRequestManager.swift */,
+				B684D97220478AFB00A9915E /* MazeSolving */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B674A325203E4E0D006FDD26 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				B674A31F203E49F5006FDD26 /* Maze.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		B674A326203E4E1C006FDD26 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B674A320203E49F6006FDD26 /* MazesViewController.swift */,
+				B674A32B203F8118006FDD26 /* MazeSolutionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B674A327203E4E30006FDD26 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B6D84139203D00F1002F040F /* Main.storyboard */,
+				B6D8413E203D00F1002F040F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B674A32A203F718F006FDD26 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				B674A328203F6E8C006FDD26 /* MazeTableViewCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		B684D97220478AFB00A9915E /* MazeSolving */ = {
+			isa = PBXGroup;
+			children = (
+				B674A32D2040DEA2006FDD26 /* MazeSolver.swift */,
+				B6E87181204352E800229352 /* PixelHash.swift */,
+				B674A33120413707006FDD26 /* PixelNode.swift */,
+				B674A33320413B56006FDD26 /* MazeColor.swift */,
+				B6E8717F2041729700229352 /* PixelNodeQueue.swift */,
+			);
+			path = MazeSolving;
+			sourceTree = "<group>";
+		};
 		B6D84129203D00F0002F040F = {
 			isa = PBXGroup;
 			children = (
 				B6D84134203D00F1002F040F /* AmazingMazes */,
 				B6D84133203D00F1002F040F /* Products */,
+				6DBC3BE83FD91DC645904A09 /* Pods */,
+				5088B4969A2639F9E4390CFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,11 +152,13 @@
 			isa = PBXGroup;
 			children = (
 				B6D84135203D00F1002F040F /* AppDelegate.swift */,
-				B6D84137203D00F1002F040F /* ViewController.swift */,
-				B6D84139203D00F1002F040F /* Main.storyboard */,
 				B6D8413C203D00F1002F040F /* Assets.xcassets */,
-				B6D8413E203D00F1002F040F /* LaunchScreen.storyboard */,
 				B6D84141203D00F1002F040F /* Info.plist */,
+				B674A326203E4E1C006FDD26 /* ViewControllers */,
+				B674A32A203F718F006FDD26 /* CustomCells */,
+				B674A324203E4DF9006FDD26 /* Utilities */,
+				B674A325203E4E0D006FDD26 /* DataModels */,
+				B674A327203E4E30006FDD26 /* Storyboards */,
 			);
 			path = AmazingMazes;
 			sourceTree = "<group>";
@@ -71,9 +170,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6D84144203D00F1002F040F /* Build configuration list for PBXNativeTarget "AmazingMazes" */;
 			buildPhases = (
+				B8B29BB64EC7D6E8BDB4AA2A /* [CP] Check Pods Manifest.lock */,
 				B6D8412E203D00F1002F040F /* Sources */,
 				B6D8412F203D00F1002F040F /* Frameworks */,
 				B6D84130203D00F1002F040F /* Resources */,
+				F454DCA915C9AADE0AC7FBC0 /* [CP] Embed Pods Frameworks */,
+				ECE2C02BA70490B6EA954B53 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,12 +233,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8B29BB64EC7D6E8BDB4AA2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ECE2C02BA70490B6EA954B53 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F454DCA915C9AADE0AC7FBC0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B6D8412E203D00F1002F040F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6D84138203D00F1002F040F /* ViewController.swift in Sources */,
+				B674A329203F6E8C006FDD26 /* MazeTableViewCell.swift in Sources */,
+				B674A323203E49F6006FDD26 /* MazesViewController.swift in Sources */,
+				B6E87182204352E800229352 /* PixelHash.swift in Sources */,
+				B6E871802041729700229352 /* PixelNodeQueue.swift in Sources */,
+				B674A32C203F8118006FDD26 /* MazeSolutionViewController.swift in Sources */,
+				B674A321203E49F6006FDD26 /* APIRequestManager.swift in Sources */,
+				B674A33420413B56006FDD26 /* MazeColor.swift in Sources */,
+				B674A322203E49F6006FDD26 /* Maze.swift in Sources */,
+				B674A32E2040DEA2006FDD26 /* MazeSolver.swift in Sources */,
+				B674A33220413707006FDD26 /* PixelNode.swift in Sources */,
 				B6D84136203D00F1002F040F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +431,7 @@
 		};
 		B6D84145203D00F1002F040F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +447,7 @@
 		};
 		B6D84146203D00F1002F040F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G5w-ah-VJF">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select to Solve-->
+        <scene sceneID="Hdh-d1-WCD">
+            <objects>
+                <viewController id="A2H-D5-LHU" customClass="MazesViewController" customModule="AmazingMazes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ie9-mx-1LH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vIz-ja-6bU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MazeTableViewCell" rowHeight="400" id="Uzi-H5-JeO" customClass="MazeTableViewCell" customModule="AmazingMazes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="400"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uzi-H5-JeO" id="fzq-6Q-WH7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DoX-u0-m0A">
+                                                    <rect key="frame" x="10" y="10" width="355" height="300"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1II-gU-pdS">
+                                                    <rect key="frame" x="0.0" y="320" width="375" height="60"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="lyT-c9-urU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="2qr-uh-Tzl">
+                                                            <rect key="frame" x="0.0" y="30" width="375" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kda-6g-S8G">
+                                                    <rect key="frame" x="0.0" y="390" width="375" height="10"/>
+                                                    <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="10" id="rNQ-aW-KwU"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DoX-u0-m0A" firstAttribute="leading" secondItem="fzq-6Q-WH7" secondAttribute="leading" constant="10" id="3Ga-qM-NDz"/>
+                                                <constraint firstItem="1II-gU-pdS" firstAttribute="leading" secondItem="fzq-6Q-WH7" secondAttribute="leading" id="4LJ-uk-1so"/>
+                                                <constraint firstAttribute="trailing" secondItem="DoX-u0-m0A" secondAttribute="trailing" constant="10" id="4ni-xe-Xp2"/>
+                                                <constraint firstAttribute="bottom" secondItem="kda-6g-S8G" secondAttribute="bottom" id="4ur-XH-WzJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="1II-gU-pdS" secondAttribute="trailing" id="Fg5-5y-he7"/>
+                                                <constraint firstItem="kda-6g-S8G" firstAttribute="leading" secondItem="fzq-6Q-WH7" secondAttribute="leading" id="NZo-M3-cuB"/>
+                                                <constraint firstItem="kda-6g-S8G" firstAttribute="top" secondItem="1II-gU-pdS" secondAttribute="bottom" constant="10" id="XKj-zD-B4d"/>
+                                                <constraint firstItem="DoX-u0-m0A" firstAttribute="height" secondItem="fzq-6Q-WH7" secondAttribute="height" multiplier="0.75" id="Zaf-r9-QOL"/>
+                                                <constraint firstItem="DoX-u0-m0A" firstAttribute="top" secondItem="fzq-6Q-WH7" secondAttribute="top" constant="10" id="ZdQ-ab-05n"/>
+                                                <constraint firstItem="1II-gU-pdS" firstAttribute="top" secondItem="DoX-u0-m0A" secondAttribute="bottom" constant="10" id="jTq-eO-bzT"/>
+                                                <constraint firstAttribute="trailing" secondItem="kda-6g-S8G" secondAttribute="trailing" id="zEZ-bD-mDz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mazeDescriptionLabel" destination="2qr-uh-Tzl" id="Lmp-YA-0HE"/>
+                                            <outlet property="mazeImageView" destination="DoX-u0-m0A" id="NKL-tX-3Si"/>
+                                            <outlet property="mazeNameLabel" destination="lyT-c9-urU" id="NOC-VC-c0C"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="A2H-D5-LHU" id="KRa-9d-WLO"/>
+                                    <outlet property="delegate" destination="A2H-D5-LHU" id="wLL-Yj-JuO"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Pwx-Zj-sc2">
+                                <rect key="frame" x="169" y="347.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vIz-ja-6bU" firstAttribute="leading" secondItem="920-UR-mSc" secondAttribute="leading" id="DMv-Aa-Zqp"/>
+                            <constraint firstItem="Pwx-Zj-sc2" firstAttribute="centerY" secondItem="vIz-ja-6bU" secondAttribute="centerY" id="Suc-KE-3gP"/>
+                            <constraint firstItem="920-UR-mSc" firstAttribute="trailing" secondItem="vIz-ja-6bU" secondAttribute="trailing" id="T5y-QF-Iwk"/>
+                            <constraint firstItem="Pwx-Zj-sc2" firstAttribute="centerX" secondItem="vIz-ja-6bU" secondAttribute="centerX" id="XKx-Co-oWs"/>
+                            <constraint firstItem="920-UR-mSc" firstAttribute="bottom" secondItem="vIz-ja-6bU" secondAttribute="bottom" id="gCO-pX-Sou"/>
+                            <constraint firstItem="vIz-ja-6bU" firstAttribute="top" secondItem="920-UR-mSc" secondAttribute="top" id="vAk-vd-k0E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="920-UR-mSc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select to Solve" id="lKt-7u-pos">
+                        <barButtonItem key="backBarButtonItem" title=" " id="1pW-W5-CCk"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Pwx-Zj-sc2" id="vol-wT-XzQ"/>
+                        <outlet property="mazesTableView" destination="vIz-ja-6bU" id="SDU-JJ-C6y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rBn-qz-fCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317.60000000000002" y="-48.125937031484263"/>
+        </scene>
+        <!--Maze Solution View Controller-->
+        <scene sceneID="pad-ZE-iXK">
+            <objects>
+                <viewController storyboardIdentifier="MazeSolutionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6MS-O4-ln3" customClass="MazeSolutionViewController" customModule="AmazingMazes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vb1-He-dRH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYd-4g-FPF" customClass="ImageScrollView" customModule="ImageScrollView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4Aq-JW-S43">
+                                <rect key="frame" x="169" y="325" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4Aq-JW-S43" firstAttribute="centerY" secondItem="xY6-lX-P24" secondAttribute="centerY" id="1q8-Lr-ak3"/>
+                            <constraint firstItem="YYd-4g-FPF" firstAttribute="top" secondItem="xY6-lX-P24" secondAttribute="top" id="5OG-J3-sYN"/>
+                            <constraint firstItem="xY6-lX-P24" firstAttribute="trailing" secondItem="YYd-4g-FPF" secondAttribute="trailing" id="5oN-js-lfD"/>
+                            <constraint firstItem="xY6-lX-P24" firstAttribute="bottom" secondItem="YYd-4g-FPF" secondAttribute="bottom" id="YSX-eB-KuG"/>
+                            <constraint firstItem="4Aq-JW-S43" firstAttribute="centerX" secondItem="xY6-lX-P24" secondAttribute="centerX" id="g01-hI-61s"/>
+                            <constraint firstItem="YYd-4g-FPF" firstAttribute="leading" secondItem="xY6-lX-P24" secondAttribute="leading" id="y8v-wt-j2P"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xY6-lX-P24"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="4Aq-JW-S43" id="Dlt-Ww-A5D"/>
+                        <outlet property="solvedMazeImageScrollView" destination="YYd-4g-FPF" id="g4s-4o-w7m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hQ-yi-6jq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1082" y="-48"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Ei-0v-pz8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G5w-ah-VJF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OUO-xC-HCr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="A2H-D5-LHU" kind="relationship" relationship="rootViewController" id="Bjf-0f-bbW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Jv-7W-Tg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-463" y="-48"/>
+        </scene>
+    </scenes>
+</document>
