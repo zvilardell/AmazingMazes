@@ -79,11 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				B674A31E203E49F5006FDD26 /* APIRequestManager.swift */,
-				B674A32D2040DEA2006FDD26 /* MazeSolver.swift */,
-				B6E87181204352E800229352 /* PixelHash.swift */,
-				B674A33120413707006FDD26 /* PixelNode.swift */,
-				B674A33320413B56006FDD26 /* MazeColor.swift */,
-				B6E8717F2041729700229352 /* PixelNodeQueue.swift */,
+				B684D97220478AFB00A9915E /* MazeSolving */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -120,6 +116,18 @@
 				B674A328203F6E8C006FDD26 /* MazeTableViewCell.swift */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		B684D97220478AFB00A9915E /* MazeSolving */ = {
+			isa = PBXGroup;
+			children = (
+				B674A32D2040DEA2006FDD26 /* MazeSolver.swift */,
+				B6E87181204352E800229352 /* PixelHash.swift */,
+				B674A33120413707006FDD26 /* PixelNode.swift */,
+				B674A33320413B56006FDD26 /* MazeColor.swift */,
+				B6E8717F2041729700229352 /* PixelNodeQueue.swift */,
+			);
+			path = MazeSolving;
 			sourceTree = "<group>";
 		};
 		B6D84129203D00F0002F040F = {
