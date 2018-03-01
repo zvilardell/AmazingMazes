@@ -37,6 +37,7 @@ class MazeSolutionViewController: UIViewController {
             MazeSolver.sharedInstance.solveMaze(mazeImage: maze) {[weak self] success, image in
                 self?.activityIndicator.stopAnimating()
                 if success, let solvedImage = image {
+                    //display solved maze image with double tap / pinch to zoom functionality
                     self?.solvedMazeImageScrollView.display(image: solvedImage)
                 } else {
                     //something went wrong, show alert

@@ -9,9 +9,10 @@
 import UIKit
 
 class PixelNode: NSObject {
+    
     //the pixel hash that we belong to
     weak var pixelHash: PixelHash?
-    //the PixelNode that has claimed us as an adjacent/child node
+    //the PixelNode that has claimed us as an adjacent/child node while solving maze
     weak var parent: PixelNode?
     //the pixel color we represent in the image
     var color: UIColor!

@@ -8,7 +8,9 @@
 
 import UIKit
 
+//queue data structure used in BFS for maze solution path
 class PixelNodeQueue: NSObject {
+    
     private var queue: [PixelNode] = []
     
     var count: Int {
@@ -24,6 +26,7 @@ class PixelNodeQueue: NSObject {
     }
     
     func dequeue() -> PixelNode? {
+        //ensure that the queue is populated before dequeueing
         return queue.count > 0 ? queue.removeFirst() : nil
     }
 }

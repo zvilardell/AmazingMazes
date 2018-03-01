@@ -25,7 +25,7 @@ class MazesViewController: UIViewController {
         mazesTableView.tableFooterView = UIView(frame: CGRect.zero)
         //calculate and set cellHeight
         setCellHeight()
-        //retrieve maze data from bluebeam server
+        //retrieve maze data
         loadMazeData()
     }
 
@@ -97,7 +97,7 @@ extension MazesViewController: UITableViewDelegate {
         let selectedMaze = mazes[indexPath.row]
         if let solutionVC = storyboard?.instantiateViewController(withIdentifier: "MazeSolutionViewController") as? MazeSolutionViewController,
         let selectedCell = tableView.cellForRow(at: indexPath) as? MazeTableViewCell,
-        let selectedMazeImage = selectedCell.mazeImageView.image {
+        let selectedMazeImage = selectedCell.mazeImageView.image { //grab downloaded image from cell's UIImageView
             solutionVC.mazeName = selectedMaze.name
             solutionVC.mazeImage = selectedMazeImage
             navigationController?.pushViewController(solutionVC, animated: true)

@@ -9,7 +9,7 @@
 import UIKit
 
 struct MazeColor {
-    //all maze colors, represented in UIExtendedSRGBColorSpace
+    //all maze colors represented in UIExtendedSRGBColorSpace for convenience
     static let red = UIColor.red
     static let blue = UIColor.blue
     static let white = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

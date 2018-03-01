@@ -8,13 +8,14 @@
 
 import UIKit
 
-//singleton class that solves mazes contained in UIImages
+//singleton class for solving mazes represented by UIImages
 class MazeSolver: NSObject {
     
     //key: unsolved maze image
     //value: solved maze image, from previous solution attempt
     private var cachedSolutions: [UIImage:UIImage] = [:]
     
+    //asynchronous background queue for manipulating and solving maze images
     private let imageManipulationQueue = DispatchQueue(label: "imageManipulation", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     
     typealias SolveMazeCompletion = (Bool, UIImage?)->()
@@ -31,11 +32,14 @@ class MazeSolver: NSObject {
     
     func solveMaze(mazeImage: UIImage, completion: @escaping SolveMazeCompletion) {
         if let solution = cachedSolutions[mazeImage] {
+            //maze has already been solved, return solution
             completion(true, solution)
         } else if let cgImage = formattedCGImage(for: mazeImage) {
-			//perform image manipulation on background thread
+			//perform image manipulation and subsequent solution pathfinding on background thread
             imageManipulationQueue.async { [weak self] in
+                //convert image to PixelHash and find solution path points
                 if let pixelHash = PixelHash(from: cgImage), let pathPoints = self?.shortestPathSolutionPoints(for: pixelHash) {
+                    //create new maze image with solution path drawn in green
                     let format = UIGraphicsImageRendererFormat(for: UITraitCollection(displayScale: 1.0))
                     let renderer = UIGraphicsImageRenderer(size: mazeImage.size, format: format)
                     let solvedMazeImage: UIImage = renderer.image { context in
@@ -44,8 +48,10 @@ class MazeSolver: NSObject {
                         context.cgContext.addLines(between: pathPoints)
                         context.cgContext.strokePath()
                     }
+                    //add solution to cache
                     self?.cachedSolutions[mazeImage] = solvedMazeImage
                     DispatchQueue.main.async {
+                        //return final solved maze image
                     	completion(true, solvedMazeImage)
                     }
                 } else {
@@ -59,8 +65,8 @@ class MazeSolver: NSObject {
         }
     }
     
-    //Create a formatted CGImage representation of the maze image for a specific CGContext
-    //(ensures that any maze image can be processed correctly when finding solution)
+    //Create a formatted CGImage representation of the unsolved maze image for a specific CGContext
+    //(ensures that every maze image will be processed correctly when finding solution)
     func formattedCGImage(for image: UIImage) -> CGImage? {
         if let cgImage = image.cgImage {
             let bitsPerComponent = 8
@@ -91,7 +97,7 @@ class MazeSolver: NSObject {
             while nodeQueue.count > 0 {
                 if let currentNode = nodeQueue.dequeue() {
                     if currentNode.color == MazeColor.blue {
-                        //found end of maze
+                        //found end of maze, return solution path as CGPoint array
                         return getPathPoints(to: currentNode)
                     }
                     nodeQueue.enqueue(currentNode.adjacencies)
@@ -101,7 +107,7 @@ class MazeSolver: NSObject {
         return nil
     }
     
-    //collect CGPoints representing the maze solution path
+    //end of maze found, collect CGPoints representing the maze solution path
     private func getPathPoints(to endNode: PixelNode) -> [CGPoint] {
         var pathPoints: [CGPoint] = []
         var node: PixelNode? = endNode

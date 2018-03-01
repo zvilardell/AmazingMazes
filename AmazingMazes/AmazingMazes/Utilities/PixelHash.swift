@@ -10,19 +10,23 @@ import UIKit
 
 class PixelHash: NSObject {
     
+    //dipatch queues for scanning/hashing image pixel data
     private let imageScanningQueue = DispatchQueue(label: "imageScanning", qos: DispatchQoS.userInitiated, attributes: DispatchQueue.Attributes.concurrent)
     private let hashWritingQueue = DispatchQueue(label: "hashWriting", qos: DispatchQoS.userInitiated)
     
+    //hashed pixel data representation of the CGImage that we initialized with
     private var pixelHash: [CGPoint:PixelNode] = [:]
     
-    //hash key to serve as the starting point of the maze represented by this pixel matrix
+    //hash key to serve as the starting point of the maze represented by this PixelHash
     var redPixelPoint: CGPoint!
     
     init?(from image: CGImage) {
         super.init()
+        //transform CGImage into color data bytes
         if let pixelData = image.dataProvider?.data {
             let bytesPerPixel: Int = image.bitsPerPixel / 8
             let pixelBytes: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+            //create dispatch group for scanning image's pixel rows
             let imageScanGroup = DispatchGroup()
             for y in 0..<image.height {
                 //start new asyncronous task to scan pixel row
@@ -35,16 +39,17 @@ class PixelHash: NSObject {
                         let b = CGFloat(pixelBytes[pixelIndex + 2]) / 255.0
                         let color = UIColor(red: r, green: g, blue: b, alpha: 1.0)
                         if color == MazeColor.black {
-                            //don't hash black pixels (maze walls), only hash pixels representing the maze path
+                            //don't hash black pixels (maze walls)
                             continue
                         }
                         let point = CGPoint(x: x, y: y)
                         let node = PixelNode(point: point, in: self, withColor: color)
                         self.hashWritingQueue.sync {
+                            //add new pixel node to hash
                             self.pixelHash[point] = node
                         }
                         if color == MazeColor.red && self.redPixelPoint == nil {
-                            //save this node to serve as the starting point of our maze
+                            //save this CGPoint to serve as the starting point of our maze
                             self.redPixelPoint = point
                         }
                     }
