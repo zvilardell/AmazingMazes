@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D3048A14E8A40D163678B6D /* Pods_AmazingMazes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */; };
+		B62837142D658D9A0030B62F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B62837132D658D9A0030B62F /* Alamofire */; };
+		B62837192D658E470030B62F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B62837182D658E470030B62F /* SDWebImage */; };
+		B628371B2D658E470030B62F /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B628371A2D658E470030B62F /* SDWebImageMapKit */; };
+		B628371E2D658E8D0030B62F /* ImageScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = B628371D2D658E8D0030B62F /* ImageScrollView */; };
 		B674A321203E49F6006FDD26 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A31E203E49F5006FDD26 /* APIRequestManager.swift */; };
 		B674A322203E49F6006FDD26 /* Maze.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A31F203E49F5006FDD26 /* Maze.swift */; };
 		B674A323203E49F6006FDD26 /* MazesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674A320203E49F6006FDD26 /* MazesViewController.swift */; };
@@ -25,8 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazingMazes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingMazes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes.debug.xcconfig"; sourceTree = "<group>"; };
 		B674A31E203E49F5006FDD26 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestManager.swift; sourceTree = "<group>"; };
 		B674A31F203E49F5006FDD26 /* Maze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maze.swift; sourceTree = "<group>"; };
 		B674A320203E49F6006FDD26 /* MazesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MazesViewController.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		B6D84141203D00F1002F040F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6E8717F2041729700229352 /* PixelNodeQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelNodeQueue.swift; sourceTree = "<group>"; };
 		B6E87181204352E800229352 /* PixelHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelHash.swift; sourceTree = "<group>"; };
-		BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazingMazes.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D3048A14E8A40D163678B6D /* Pods_AmazingMazes.framework in Frameworks */,
+				B628371B2D658E470030B62F /* SDWebImageMapKit in Frameworks */,
+				B62837192D658E470030B62F /* SDWebImage in Frameworks */,
+				B628371E2D658E8D0030B62F /* ImageScrollView in Frameworks */,
+				B62837142D658D9A0030B62F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,18 +64,8 @@
 		5088B4969A2639F9E4390CFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				14D0DF23F2937E39B1A954C1 /* Pods_AmazingMazes.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6DBC3BE83FD91DC645904A09 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */,
-				BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		B674A324203E4DF9006FDD26 /* Utilities */ = {
@@ -135,7 +128,6 @@
 			children = (
 				B6D84134203D00F1002F040F /* AmazingMazes */,
 				B6D84133203D00F1002F040F /* Products */,
-				6DBC3BE83FD91DC645904A09 /* Pods */,
 				5088B4969A2639F9E4390CFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -170,12 +162,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6D84144203D00F1002F040F /* Build configuration list for PBXNativeTarget "AmazingMazes" */;
 			buildPhases = (
-				B8B29BB64EC7D6E8BDB4AA2A /* [CP] Check Pods Manifest.lock */,
 				B6D8412E203D00F1002F040F /* Sources */,
 				B6D8412F203D00F1002F040F /* Frameworks */,
 				B6D84130203D00F1002F040F /* Resources */,
-				F454DCA915C9AADE0AC7FBC0 /* [CP] Embed Pods Frameworks */,
-				ECE2C02BA70490B6EA954B53 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -211,6 +200,11 @@
 				Base,
 			);
 			mainGroup = B6D84129203D00F0002F040F;
+			packageReferences = (
+				B62837122D658D9A0030B62F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B62837172D658E470030B62F /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				B628371C2D658E8D0030B62F /* XCRemoteSwiftPackageReference "ImageScrollView" */,
+			);
 			productRefGroup = B6D84133203D00F1002F040F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,54 +226,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		B8B29BB64EC7D6E8BDB4AA2A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		ECE2C02BA70490B6EA954B53 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F454DCA915C9AADE0AC7FBC0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmazingMazes/Pods-AmazingMazes-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B6D8412E203D00F1002F040F /* Sources */ = {
@@ -424,20 +370,24 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		B6D84145203D00F1002F040F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7327519FCC1ECDDC104B6340 /* Pods-AmazingMazes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EFG6682TTT;
 				INFOPLIST_FILE = AmazingMazes/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zvilardell.AmazingMazes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -447,13 +397,16 @@
 		};
 		B6D84146203D00F1002F040F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC67142D3EB8AEB0AF728BC6 /* Pods-AmazingMazes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EFG6682TTT;
 				INFOPLIST_FILE = AmazingMazes/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zvilardell.AmazingMazes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -483,6 +436,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B62837122D658D9A0030B62F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.9.1;
+			};
+		};
+		B62837172D658E470030B62F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.20.0;
+			};
+		};
+		B628371C2D658E8D0030B62F /* XCRemoteSwiftPackageReference "ImageScrollView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huynguyencong/ImageScrollView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B62837132D658D9A0030B62F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B62837122D658D9A0030B62F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B62837182D658E470030B62F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B62837172D658E470030B62F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		B628371A2D658E470030B62F /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B62837172D658E470030B62F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		B628371D2D658E8D0030B62F /* ImageScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B628371C2D658E8D0030B62F /* XCRemoteSwiftPackageReference "ImageScrollView" */;
+			productName = ImageScrollView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6D8412A203D00F0002F040F /* Project object */;
 }

@@ -1,0 +1,33 @@
+{
+  "originHash" : "b78386dd227b579a8c002fc475c593cedbc88b5b964f16dc833641bb8705796a",
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "747c8db8d57b68d5e35275f10c92d55f982adbd4",
+        "version" : "4.9.1"
+      }
+    },
+    {
+      "identity" : "imagescrollview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/huynguyencong/ImageScrollView.git",
+      "state" : {
+        "revision" : "1cf139aec5b838d3b383058e20cdbd80d20142f5",
+        "version" : "1.9.3"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "10d06f6a33bafae8c164fbfd1f03391f6d4692b3",
+        "version" : "5.20.0"
+      }
+    }
+  ],
+  "version" : 3
+}
